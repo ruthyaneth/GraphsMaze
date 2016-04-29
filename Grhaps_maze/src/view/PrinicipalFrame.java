@@ -3,7 +3,8 @@ package view;
 import javax.swing.JFrame;
 
 
-import constant.Constants;
+import constant.ConstantsView;
+import controller.Controller;
 
 public class PrinicipalFrame extends JFrame   {
 
@@ -11,16 +12,20 @@ public class PrinicipalFrame extends JFrame   {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private MenuBar menuBar;
+	private Menu menuBar;
 	
-	public PrinicipalFrame() {
+	public PrinicipalFrame(Controller controller) {
 		super();
-		this.setSize(Constants.WIDTH_WINDOW, Constants.HEIGHT_WINDOW);
+		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
-		this.setTitle(Constants.TITLE_APPLICATION);
-		menuBar = new MenuBar();
+		this.setTitle(ConstantsView.TITLE_APPLICATION);
+		menuBar = new Menu(controller);
 		this.setJMenuBar(menuBar);
 		
 	}
+	public Menu getMenu() {
+		return menuBar;
+	}
+
 
 }
