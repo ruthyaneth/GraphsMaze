@@ -6,7 +6,9 @@ import java.io.IOException;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
+import model.provicional;
 import view.JFileChooserSelectImage;
+import view.PanelOpenImage;
 import view.PrinicipalFrame;
 
 public class Controller implements ActionListener {
@@ -66,7 +68,6 @@ public class Controller implements ActionListener {
 		switch (e.getActionCommand()) {
 		case ConstantsListener.ITEM_FILE_OPEN_IMAGE:
 			showFileChooser();
-			System.out.println("ESta escuchandp");
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
 			System.out.println("escucha create");
@@ -88,8 +89,8 @@ public class Controller implements ActionListener {
 	}
 	
 	private void showFileChooser(){
-		fileChooser = new JFileChooserSelectImage();
-		fileChooser.openImage();
+		provicional provicional = new provicional();
+		provicional.showFile();
 	}
 
 }
