@@ -8,6 +8,8 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import config.HandlerLanguage;
+import config.HandlerProperties;
 import constant.ConstantsView;
 
 public class JFileChooserSelectImage extends JFileChooser {
@@ -39,5 +41,12 @@ public class JFileChooserSelectImage extends JFileChooser {
 					JOptionPane.WARNING_MESSAGE);
 		}
 		return texto;
+	}
+public void changeLenguage() throws IOException{
+		
+		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
+		handlerProperties.load();
+		
+		this.setDialogTitle(handlerProperties.getProperty(ConstantsView.TITLE_FILE_CHOOSER));
 	}
 }

@@ -78,6 +78,12 @@ public class Controller implements ActionListener {
 			System.out.println("escucho close");
 			System.exit(0);
 			break;
+		case ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH:
+			changeToSpanish();
+			break;
+		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
+			changeToEnglish();
+			break;
 		}
 	}
 	

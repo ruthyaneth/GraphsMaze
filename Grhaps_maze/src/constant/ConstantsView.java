@@ -20,6 +20,6 @@ public class ConstantsView {
 	public static final String NAME_ITEM_LANGUAGE_ENGLISH = "English";
 	
 	//Constantes JFileChooserS
-	public static final String TITLE_FILE_CHOOSER = "Seleccione un Laberinto ortogonal";
+	public static final String TITLE_FILE_CHOOSER = "Seleccione_un_Laberinto_Ortogonal";
 	
 }

@@ -102,11 +102,15 @@ public class Menu extends JMenuBar {
 
 	private void addItemLanguageSpanish() {
 		itemLanguageSpanish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH);
+		itemLanguageSpanish.addActionListener(controller);
+		itemLanguageSpanish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH);
 		menuLanguage.add(itemLanguageSpanish);
 	}
 
 	private void addItemLanguageEnglish() {
 		itemLanguageEnglish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH);
+		itemLanguageEnglish.addActionListener(controller);
+		itemLanguageEnglish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH);
 		menuLanguage.add(itemLanguageEnglish);
 	}
 	public void changeLenguage() throws IOException{
