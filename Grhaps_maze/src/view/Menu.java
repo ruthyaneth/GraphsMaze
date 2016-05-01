@@ -24,9 +24,11 @@ public class Menu extends JMenuBar {
 	private JMenu menuLanguage;
 	private JMenuItem itemLanguageSpanish;
 	private JMenuItem itemLanguageEnglish;
+	private Controller controller;
 
 	public Menu(Controller controller) {
 		super();
+		this.controller = controller;
 		initial();
 	}
 
@@ -58,24 +60,31 @@ public class Menu extends JMenuBar {
 		itemFileOpenImage = new JMenuItem();
 		itemFileOpenImage.setText(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE);
 		itemFileOpenImage.setActionCommand(ConstantsListener.ITEM_FILE_OPEN_IMAGE);
+		itemFileOpenImage.addActionListener(controller);
 		menuFile.add(itemFileOpenImage);
 	}
 
 	public void addItemFileCreateImage() {
 		itemFileCreateImage = new JMenuItem();
 		itemFileCreateImage.setText(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE);
+		itemFileCreateImage.setActionCommand(ConstantsListener.ITEM_FILE_CREATE_IMAGE);
+		itemFileCreateImage.addActionListener(controller);
 		menuFile.add(itemFileCreateImage);
 	}
 
 	private void addItemFileEditImage() {
 		itemFileEditImage = new JMenuItem();
 		itemFileEditImage.setText(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE);
+		itemFileEditImage.setActionCommand(ConstantsListener.ITEM_FILE_EDIT_IMAGE);
+		itemFileEditImage.addActionListener(controller);
 		menuFile.add(itemFileEditImage);
 	}
 
 	private void addItemFileCloseApp() {
 		itemFileCloseApp = new JMenuItem();
 		itemFileCloseApp.setText(ConstantsView.NAME_ITEM_FILE_CLOSE_APP);
+		itemFileCloseApp.setActionCommand(ConstantsListener.ITEM_FILE_CLOSE_APP);
+		itemFileCloseApp.addActionListener(controller);
 		menuFile.add(itemFileCloseApp);
 	}
 
