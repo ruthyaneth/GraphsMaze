@@ -6,15 +6,18 @@ import java.io.IOException;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
+import view.JFileChooserSelectImage;
 import view.PrinicipalFrame;
 
 public class Controller implements ActionListener {
 
 	private HandlerLanguage handlerLanguage;
 	private PrinicipalFrame frame;
+	private JFileChooserSelectImage fileChooser;
 
 	public Controller() {
 		loadConfiguration();
+		
 	}
 
 	public void show() {
@@ -62,6 +65,7 @@ public class Controller implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case ConstantsListener.ITEM_FILE_OPEN_IMAGE:
+			showFileChooser();
 			System.out.println("ESta escuchandp");
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
@@ -75,6 +79,11 @@ public class Controller implements ActionListener {
 			System.exit(0);
 			break;
 		}
+	}
+	
+	private void showFileChooser(){
+		fileChooser = new JFileChooserSelectImage();
+		fileChooser.openImage();
 	}
 
 }
