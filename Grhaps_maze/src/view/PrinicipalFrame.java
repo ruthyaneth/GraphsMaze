@@ -1,9 +1,13 @@
 package view;
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import config.HandlerLanguage;
+import config.HandlerProperties;
 import constant.ConstantsView;
 import controller.Controller;
 
@@ -21,6 +25,7 @@ public class PrinicipalFrame extends JFrame   {
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,9 +39,14 @@ public class PrinicipalFrame extends JFrame   {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try {
+			changeLenguage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
-		this.setTitle(ConstantsView.TITLE_APPLICATION);
 		menuBar = new Menu(controller);
 		this.setJMenuBar(menuBar);
 		panelOpenImage = new PanelOpenImage();
@@ -46,6 +56,12 @@ public class PrinicipalFrame extends JFrame   {
 	public Menu getMenu() {
 		return menuBar;
 	}
+public void changeLenguage() throws IOException{
+		
+		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
+		handlerProperties.load();
+		this.setTitle(handlerProperties.getProperty(ConstantsView.TITLE_APPLICATION));
+}
 
 
 }

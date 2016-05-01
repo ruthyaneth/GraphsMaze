@@ -8,5 +8,4 @@ public class Graph_maze {
 		Controller controller = new Controller();
 		controller.show();
 	}
-
 }

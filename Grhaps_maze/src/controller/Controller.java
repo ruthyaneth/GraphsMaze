@@ -2,24 +2,27 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
 import model.provicional;
-import view.JFileChooserSelectImage;
-import view.PanelOpenImage;
 import view.PrinicipalFrame;
 
 public class Controller implements ActionListener {
 
 	private HandlerLanguage handlerLanguage;
 	private PrinicipalFrame frame;
-	private JFileChooserSelectImage fileChooser;
+	private JFileChooser fileChooser;
 
 	public Controller() {
 		loadConfiguration();
-		
+		fileChooser = new JFileChooser();
 	}
 
 	public void show() {
@@ -71,7 +74,7 @@ public class Controller implements ActionListener {
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
 			System.out.println("escucha create");
-;
+			;
 		case ConstantsListener.ITEM_FILE_EDIT_IMAGE:
 			System.out.println("edit");
 			break;
@@ -85,12 +88,34 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
+		case ConstantsListener.OPEN:
+
 		}
 	}
-	
-	private void showFileChooser(){
-		provicional provicional = new provicional();
-		provicional.showFile();
+
+	private void showFileChooser() {
+		provicional provicional = new provicional(this, fileChooser);
+		// Valor que tomara el fileChooser
+		this.fileChooser = fileChooser;
+		int regresaValor = fileChooser.showOpenDialog(null);
+		// Accion del fileChooser
+		if (regresaValor == JFileChooser.APPROVE_OPTION) {
+			// Crear propiedades para ser utilizadas por fileChooser
+			File archivoElegido = fileChooser.getSelectedFile();
+			// Obteniendo la direccion del archivo
+			String direccion = archivoElegido.getPath();
+			// Bloque try-catch para errores
+			try {
+				// Obtiene la direccion del archivo y lo instancia en icon
+				ImageIcon icon = new ImageIcon(direccion);
+				// Setea el labelImagen con el archivo obtenido
+				provicional.getLabelImagen().setIcon(icon);
+			} catch (Exception es) {
+				JOptionPane.showMessageDialog(null, "Upss!! error abriendo la imagen " + es);
+			}
+		}
 	}
+
+	
 
 }
