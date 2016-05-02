@@ -1,7 +1,14 @@
 package config;
-
 import java.io.IOException;
-
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * Clase  
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class HandlerLanguage {
 	
 	private String fileName;

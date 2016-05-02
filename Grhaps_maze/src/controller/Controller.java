@@ -1,5 +1,4 @@
 package controller;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -13,18 +12,32 @@ import config.HandlerLanguage;
 import constant.ConstantsListener;
 import model.provicional;
 import view.PrinicipalFrame;
-
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * Clase donde se encuenta el manejador de evento d e los botones. 
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class Controller implements ActionListener {
 
+	//------Atributtes-----
+	
 	private HandlerLanguage handlerLanguage;
 	private PrinicipalFrame frame;
 	private JFileChooser fileChooser;
 
+	//------Builder------
+	
 	public Controller() {
 		loadConfiguration();
 		fileChooser = new JFileChooser();
 	}
 
+	//-----Methods-----
+	
 	public void show() {
 		frame = new PrinicipalFrame(this);
 		frame.setVisible(true);
@@ -49,7 +62,6 @@ public class Controller implements ActionListener {
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -61,8 +73,30 @@ public class Controller implements ActionListener {
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	private void showFileChooser() {
+		provicional provicional = new provicional(this, fileChooser);
+		// Valor que tomara el fileChooser
+		this.fileChooser = fileChooser;
+		int regresaValor = fileChooser.showOpenDialog(null);
+		// Accion del fileChooser
+		if (regresaValor == JFileChooser.APPROVE_OPTION) {
+			// Crear propiedades para ser utilizadas por fileChooser
+			File archivoElegido = fileChooser.getSelectedFile();
+			// Obteniendo la direccion del archivo
+			String direccion = archivoElegido.getPath();
+			// Bloque try-catch para errores
+			try {
+				// Obtiene la direccion del archivo y lo instancia en icon
+				ImageIcon icon = new ImageIcon(direccion);
+				// Setea el labelImagen con el archivo obtenido
+				provicional.getLabelImagen().setIcon(icon);
+			} catch (Exception es) {
+				JOptionPane.showMessageDialog(null, "Error abriendo la imagen " + es);
+			}
 		}
 	}
 
@@ -93,28 +127,7 @@ public class Controller implements ActionListener {
 		}
 	}
 
-	private void showFileChooser() {
-		provicional provicional = new provicional(this, fileChooser);
-		// Valor que tomara el fileChooser
-		this.fileChooser = fileChooser;
-		int regresaValor = fileChooser.showOpenDialog(null);
-		// Accion del fileChooser
-		if (regresaValor == JFileChooser.APPROVE_OPTION) {
-			// Crear propiedades para ser utilizadas por fileChooser
-			File archivoElegido = fileChooser.getSelectedFile();
-			// Obteniendo la direccion del archivo
-			String direccion = archivoElegido.getPath();
-			// Bloque try-catch para errores
-			try {
-				// Obtiene la direccion del archivo y lo instancia en icon
-				ImageIcon icon = new ImageIcon(direccion);
-				// Setea el labelImagen con el archivo obtenido
-				provicional.getLabelImagen().setIcon(icon);
-			} catch (Exception es) {
-				JOptionPane.showMessageDialog(null, "Upss!! error abriendo la imagen " + es);
-			}
-		}
-	}
+	
 
 	
 

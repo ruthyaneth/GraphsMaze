@@ -1,5 +1,4 @@
 package view;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,25 +10,39 @@ import javax.swing.JOptionPane;
 import config.HandlerLanguage;
 import config.HandlerProperties;
 import constant.ConstantsView;
-
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * 
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class JFileChooserSelectImage extends JFileChooser {
 
+	//------Atributtes-------
+	
 	private static final long serialVersionUID = 1L;
-	File abre;
-	String aux = "";
-	String texto = "";
+	private File open;
+	private String aux = "";
+	private String texto = "";
 
+	//------Builder-------
+	
 	public JFileChooserSelectImage() {
 		super(ConstantsView.TITLE_FILE_CHOOSER);
 		showOpenDialog(this);
-		abre = getSelectedFile();
+		open = getSelectedFile();
 	}
 
+	//------Methods-------
+	
 	public String openImage() {
 		try {
 
-			if (abre != null) {
-				FileReader archivos = new FileReader(abre);
+			if (open != null) {
+				FileReader archivos = new FileReader(open);
 				BufferedReader lee = new BufferedReader(archivos);
 				while ((aux = lee.readLine()) != null) {
 					texto += aux + "\n";
@@ -42,6 +55,7 @@ public class JFileChooserSelectImage extends JFileChooser {
 		}
 		return texto;
 	}
+	
 public void changeLenguage() throws IOException{
 		
 		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);

@@ -11,38 +11,38 @@ import config.HandlerProperties;
 import constant.ConstantsView;
 import controller.Controller;
 
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * Clase 
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class PrinicipalFrame extends JFrame   {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Menu menuBar;
 	private PanelOpenImage panelOpenImage;
-	
+
 	public PrinicipalFrame(Controller controller) {
 		super();
-		
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			changeLenguage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
@@ -56,12 +56,12 @@ public class PrinicipalFrame extends JFrame   {
 	public Menu getMenu() {
 		return menuBar;
 	}
-public void changeLenguage() throws IOException{
-		
+	public void changeLenguage() throws IOException{
+
 		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
 		handlerProperties.load();
 		this.setTitle(handlerProperties.getProperty(ConstantsView.TITLE_APPLICATION));
-}
+	}
 
 
 }

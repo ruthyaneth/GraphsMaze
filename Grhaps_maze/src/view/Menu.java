@@ -12,6 +12,15 @@ import constant.ConstantsListener;
 import constant.ConstantsView;
 import controller.Controller;
 
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * Clase  
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class Menu extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +54,6 @@ public class Menu extends JMenuBar {
 		try {
 			changeLenguage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
