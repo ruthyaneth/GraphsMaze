@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
@@ -61,6 +62,7 @@ public class Controller implements ActionListener {
 			handlerLanguage.language = "language/languageUs.properties";
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
+			frame.getToolBar().changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -72,6 +74,7 @@ public class Controller implements ActionListener {
 			handlerLanguage.language = "language/languageEs.properties";
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
+			frame.getToolBar().changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.io.IOException;
 
 import javax.swing.JFrame;
@@ -25,6 +26,7 @@ public class PrinicipalFrame extends JFrame   {
 	private static final long serialVersionUID = 1L;
 	private Menu menuBar;
 	private PanelOpenImage panelOpenImage;
+	private ToolBar toolBar;
 
 	public PrinicipalFrame(Controller controller) {
 		super();
@@ -45,6 +47,7 @@ public class PrinicipalFrame extends JFrame   {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
 		menuBar = new Menu(controller);
@@ -52,6 +55,8 @@ public class PrinicipalFrame extends JFrame   {
 		panelOpenImage = new PanelOpenImage();
 		this.add(panelOpenImage);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		toolBar = new ToolBar();
+		this.add(toolBar, BorderLayout.NORTH);
 	}
 	public Menu getMenu() {
 		return menuBar;
@@ -62,6 +67,8 @@ public class PrinicipalFrame extends JFrame   {
 		handlerProperties.load();
 		this.setTitle(handlerProperties.getProperty(ConstantsView.TITLE_APPLICATION));
 	}
-
+	public ToolBar getToolBar() {
+		return toolBar;
+	}
 
 }

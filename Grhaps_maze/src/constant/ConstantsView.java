@@ -32,5 +32,11 @@ public class ConstantsView {
 	 * Constantes JFileChooserS
 	 */
 	public static final String TITLE_FILE_CHOOSER = "Seleccione_un_Laberinto_Ortogonal";
+	/*
+	 * Constantes ToolBar
+	 */
+	public static final String TOOL_BAR_TOOL_TIP_BUTTON_OPEN_IMAGE = "Open_Laberinto";
+	public static final String TOOL_BAR_TOOL_TIP_BUTTON_CREATE_IMAGE = "Create_Laberinto";
+	public static final String TOOL_BAR_TOOL_TIP_BUTTON_EDIT_IMAGE = "Edit_Image";
 	
 }
