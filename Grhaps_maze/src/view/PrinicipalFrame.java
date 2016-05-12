@@ -55,7 +55,7 @@ public class PrinicipalFrame extends JFrame   {
 		panelOpenImage = new PanelOpenImage();
 		this.add(panelOpenImage);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		toolBar = new ToolBar();
+		toolBar = new ToolBar(controller);
 		this.add(toolBar, BorderLayout.NORTH);
 	}
 	public Menu getMenu() {

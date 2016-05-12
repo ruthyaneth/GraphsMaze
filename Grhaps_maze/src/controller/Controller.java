@@ -125,8 +125,6 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
-		case ConstantsListener.OPEN:
-
 		}
 	}
 
