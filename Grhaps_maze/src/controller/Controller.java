@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
+import drawaze.MazeCreator;
 import model.provicional;
 import view.PrinicipalFrame;
 /**
@@ -110,8 +111,9 @@ public class Controller implements ActionListener {
 			showFileChooser();
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
-			System.out.println("escucha create");
-			;
+			System.out.println("crear laberitno");
+//			MazeCreator crator = new MazeCreator();
+			break;
 		case ConstantsListener.ITEM_FILE_EDIT_IMAGE:
 			System.out.println("edit");
 			break;
@@ -125,11 +127,7 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
+			
 		}
 	}
-
-	
-
-	
-
 }
