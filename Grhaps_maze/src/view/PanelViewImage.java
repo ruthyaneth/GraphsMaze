@@ -1,11 +1,16 @@
 package view;
 import java.awt.BorderLayout;
+import java.io.IOException;
+
 import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import config.HandlerLanguage;
+import config.HandlerProperties;
+import constant.ConstantsView;
 import controller.Controller;
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
@@ -13,7 +18,6 @@ import controller.Controller;
  * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
- *NO SE PARA QUE ES 
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
 public class PanelViewImage extends JPanel {
@@ -30,20 +34,19 @@ public class PanelViewImage extends JPanel {
 	//-----Builder------
 	public PanelViewImage(Controller controller, JFileChooser fileChooser){
 		
-
-		/**Creacion de componentes*/
-
 		//---Labels---
 		labelImagen = new JLabel();
 
-		//---Buttons---
-
-		//----Panels----
-		this.setBorder( BorderFactory.createTitledBorder ("Visualizacion de la imagen") );
 		this.add( labelImagen, BorderLayout.CENTER);
 		fileChooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG", "jpg", "png");
 		fileChooser.setFileFilter(filter);
+		try {
+			changeLenguage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public JLabel getLabelImagen() {
@@ -52,6 +55,12 @@ public class PanelViewImage extends JPanel {
 	public void setLabelImagen(JLabel labelImagen) {
 		this.labelImagen = labelImagen;
 	}
-
+public void changeLenguage() throws IOException{
+		
+		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
+		handlerProperties.load();
+		
+		this.setBorder(BorderFactory.createTitledBorder (handlerProperties.getProperty(ConstantsView.TITLE_PANEL_IMAGE)));
+	}
 
 }

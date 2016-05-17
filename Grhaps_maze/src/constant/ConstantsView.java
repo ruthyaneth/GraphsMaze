@@ -39,4 +39,7 @@ public class ConstantsView {
 	public static final String TOOL_BAR_TOOL_TIP_BUTTON_CREATE_IMAGE = "Create_Laberinto";
 	public static final String TOOL_BAR_TOOL_TIP_BUTTON_EDIT_IMAGE = "Edit_Image";
 	
+	public static final String TITLE_PANEL_IMAGE = "Visualizacion_imagen";
+	
+	
 }

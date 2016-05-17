@@ -1,4 +1,5 @@
 package controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -14,32 +15,30 @@ import constant.ConstantsListener;
 import drawMaze.MazeCreator;
 import view.PrinicipalFrame;
 import view.PanelViewImage;
+
 /**
- * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
- * FACULTAD DE INGENIERIA.
- * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
- * PRESENTADO A: Ing Helver Valero.
- * PROGRAMACION III
- * Clase donde se encuenta el manejador de evento d e los botones. 
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION. PRESENTADO A: Ing Helver
+ * Valero. PROGRAMACION III Clase donde se encuenta el manejador de evento d e 
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
 public class Controller implements ActionListener {
 
-	//------Atributtes-----
-	
+	// ------Atributtes-----
+
 	private HandlerLanguage handlerLanguage;
 	private PrinicipalFrame frame;
 	private JFileChooser fileChooser;
+	private PanelViewImage provicional;
+	// ------Builder------
 
-	//------Builder------
-	
 	public Controller() {
 		loadConfiguration();
 		fileChooser = new JFileChooser();
 	}
 
-	//-----Methods-----
-	
+	// -----Methods-----
+
 	public void show() {
 		frame = new PrinicipalFrame(this);
 		frame.setVisible(true);
@@ -64,6 +63,8 @@ public class Controller implements ActionListener {
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
 			frame.getToolBar().changeLenguage();
+			frame.changeLenguage();
+			provicional.changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -76,28 +77,22 @@ public class Controller implements ActionListener {
 			handlerLanguage.setLanguage();
 			frame.getMenu().changeLenguage();
 			frame.getToolBar().changeLenguage();
+			frame.changeLenguage();
+			provicional.changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void showFileChooser() {
-		PanelViewImage provicional = new PanelViewImage(this, fileChooser);
+		provicional = new PanelViewImage(this, fileChooser);
 		frame.add(provicional);
-		// Valor que tomara el fileChooser
-		this.fileChooser = fileChooser;
 		int regresaValor = fileChooser.showOpenDialog(null);
-		// Accion del fileChooser
 		if (regresaValor == JFileChooser.APPROVE_OPTION) {
-			// Crear propiedades para ser utilizadas por fileChooser
 			File archivoElegido = fileChooser.getSelectedFile();
-			// Obteniendo la direccion del archivo
 			String direccion = archivoElegido.getPath();
-			// Bloque try-catch para errores
 			try {
-				// Obtiene la direccion del archivo y lo instancia en icon
 				ImageIcon icon = new ImageIcon(direccion);
-				// Setea el labelImagen con el archivo obtenido
 				provicional.getLabelImagen().setIcon(icon);
 			} catch (Exception es) {
 				JOptionPane.showMessageDialog(null, "Error abriendo la imagen " + es);
@@ -113,7 +108,7 @@ public class Controller implements ActionListener {
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
 			System.out.println("crear laberitno");
-//			MazeCreator crator = new MazeCreator();
+			// MazeCreator crator = new MazeCreator();
 			break;
 		case ConstantsListener.ITEM_FILE_EDIT_IMAGE:
 			System.out.println("edit");
@@ -128,7 +123,7 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
-			
+
 		}
 	}
 }
