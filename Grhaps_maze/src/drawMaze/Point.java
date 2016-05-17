@@ -1,4 +1,4 @@
-package drawaze;
+package drawMaze;
 public class Point
 {
 	public int X;

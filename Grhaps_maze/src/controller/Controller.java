@@ -11,9 +11,9 @@ import javax.swing.UIManager;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
-import drawaze.MazeCreator;
-import model.provicional;
+import drawMaze.MazeCreator;
 import view.PrinicipalFrame;
+import view.PanelViewImage;
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
  * FACULTAD DE INGENIERIA.
@@ -82,7 +82,8 @@ public class Controller implements ActionListener {
 	}
 	
 	private void showFileChooser() {
-		provicional provicional = new provicional(this, fileChooser);
+		PanelViewImage provicional = new PanelViewImage(this, fileChooser);
+		frame.add(provicional);
 		// Valor que tomara el fileChooser
 		this.fileChooser = fileChooser;
 		int regresaValor = fileChooser.showOpenDialog(null);

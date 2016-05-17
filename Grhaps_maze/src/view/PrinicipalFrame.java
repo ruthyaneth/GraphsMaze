@@ -25,7 +25,6 @@ public class PrinicipalFrame extends JFrame   {
 
 	private static final long serialVersionUID = 1L;
 	private Menu menuBar;
-	private PanelOpenImage panelOpenImage;
 	private ToolBar toolBar;
 
 	public PrinicipalFrame(Controller controller) {
@@ -52,8 +51,6 @@ public class PrinicipalFrame extends JFrame   {
 		this.setLocationRelativeTo(null);
 		menuBar = new Menu(controller);
 		this.setJMenuBar(menuBar);
-		panelOpenImage = new PanelOpenImage();
-		this.add(panelOpenImage);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		toolBar = new ToolBar(controller);
 		this.add(toolBar, BorderLayout.NORTH);

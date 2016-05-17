@@ -1,4 +1,4 @@
-package drawaze;
+package drawMaze;
 import java.util.*;
 import java.io.*;
 import java.awt.*;
@@ -30,7 +30,7 @@ public class MazeCreator
 		//create a label that will show messages
 		JLabel notif = new JLabel(" Input: Wall Mode     ");
 		
-		//create the button to switch between walls and points
+		//create the button to switch between wallñ..jtw	7h7q	qA<<<<<Es and points
 		JButton wallOrPointButton = new JButton("Switch to Start/End");
 		wallOrPointButton.addActionListener(new ActionListener()
 		{

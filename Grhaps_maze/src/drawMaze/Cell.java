@@ -1,4 +1,4 @@
-package drawaze;
+package drawMaze;
 public class Cell
 {
 	private int state; //0 if blank, 1 if wall, 2 if start/end

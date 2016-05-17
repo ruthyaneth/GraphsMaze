@@ -1,4 +1,4 @@
-package drawaze;
+package drawMaze;
 import java.util.*;
 import java.io.*;
 import java.awt.*;
