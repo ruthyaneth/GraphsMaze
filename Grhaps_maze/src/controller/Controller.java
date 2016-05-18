@@ -14,6 +14,7 @@ import config.HandlerLanguage;
 import constant.ConstantsListener;
 import drawMaze.MazeCreator;
 import view.PrinicipalFrame;
+import view.CreateWindowMaze;
 import view.PanelViewImage;
 
 /**
@@ -30,6 +31,8 @@ public class Controller implements ActionListener {
 	private PrinicipalFrame frame;
 	private JFileChooser fileChooser;
 	private PanelViewImage provicional;
+	private CreateWindowMaze createWindow;
+
 	// ------Builder------
 
 	public Controller() {
@@ -42,6 +45,12 @@ public class Controller implements ActionListener {
 	public void show() {
 		frame = new PrinicipalFrame(this);
 		frame.setVisible(true);
+	}
+	
+	public void showWindowCreate(){
+		
+		this.createWindow = new CreateWindowMaze();
+		this.createWindow.setVisible(true);
 	}
 
 	public void loadConfiguration() {
@@ -108,7 +117,7 @@ public class Controller implements ActionListener {
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
 			System.out.println("crear laberitno");
-			// MazeCreator crator = new MazeCreator();
+			showWindowCreate();
 			break;
 		case ConstantsListener.ITEM_FILE_EDIT_IMAGE:
 			System.out.println("edit");

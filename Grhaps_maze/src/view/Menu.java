@@ -2,6 +2,7 @@ package view;
 
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -23,6 +24,8 @@ import controller.Controller;
  */
 public class Menu extends JMenuBar {
 
+	//-----Atributtes------
+
 	private static final long serialVersionUID = 1L;
 	private JMenu menuFile;
 	private JMenuItem itemFileOpenImage;
@@ -35,12 +38,16 @@ public class Menu extends JMenuBar {
 	private JMenuItem itemLanguageEnglish;
 	private Controller controller;
 
+	//-----Builder-----
+
 	public Menu(Controller controller) {
 		super();
 		this.controller = controller;
 		initial();
 	}
-
+	
+	//------Methods------
+	
 	private void initial() {
 		addMenuFile();
 		addItemFileOpenImage();
@@ -73,11 +80,12 @@ public class Menu extends JMenuBar {
 	}
 
 	public void addItemFileCreateImage() {
-		itemFileCreateImage = new JMenuItem();
-		itemFileCreateImage.setText(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE);
-		itemFileCreateImage.setActionCommand(ConstantsListener.ITEM_FILE_CREATE_IMAGE);
-		itemFileCreateImage.addActionListener(controller);
-		menuFile.add(itemFileCreateImage);
+		this.itemFileCreateImage = new JMenuItem();
+		this.itemFileCreateImage.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_CREATE)));
+		this.itemFileCreateImage.setText(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE);
+		this.itemFileCreateImage.setActionCommand(ConstantsListener.ITEM_FILE_CREATE_IMAGE);
+		this.itemFileCreateImage.addActionListener(controller);
+		this.menuFile.add(itemFileCreateImage);
 	}
 
 	private void addItemFileEditImage() {
@@ -122,14 +130,14 @@ public class Menu extends JMenuBar {
 		menuLanguage.add(itemLanguageEnglish);
 	}
 	public void changeLenguage() throws IOException{
-		
+
 		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
 		handlerProperties.load();
-		
+
 		menuFile.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_FILE));
 		menuSettings.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_SETTINGS));
 		menuLanguage.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_LANGUAGE));
-		
+
 		itemFileOpenImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE));
 		itemFileEditImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE));
 		itemFileCreateImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE));
@@ -137,7 +145,7 @@ public class Menu extends JMenuBar {
 		itemLanguageSpanish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH));
 		itemLanguageEnglish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH));
 	}
-	
+
 
 
 }

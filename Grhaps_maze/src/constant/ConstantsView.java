@@ -8,6 +8,7 @@ package constant;
  * Clase de constantes donde  de las ventanas. 
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
+
 public class ConstantsView {
 	//-----Atributtes------
 	/**
@@ -32,14 +33,26 @@ public class ConstantsView {
 	 * Constantes JFileChooserS
 	 */
 	public static final String TITLE_FILE_CHOOSER = "Seleccione_un_Laberinto_Ortogonal";
-	/*
+	/**
 	 * Constantes ToolBar
 	 */
 	public static final String TOOL_BAR_TOOL_TIP_BUTTON_OPEN_IMAGE = "Open_Laberinto";
 	public static final String TOOL_BAR_TOOL_TIP_BUTTON_CREATE_IMAGE = "Create_Laberinto";
 	public static final String TOOL_BAR_TOOL_TIP_BUTTON_EDIT_IMAGE = "Edit_Image";
 	
-	public static final String TITLE_PANEL_IMAGE = "Visualizacion_imagen";
+
+	/**
+	 * Constantes de ventada de cracion del laberinto 
+	 */
+	public static final int DEFAULT_SIZE = 600;
+	public static final String DEFAUTL_NAME_WINDOW = "Crear Laberinto";
+	public static final String DEFAULT_BUTTON_CREATE = "Generar Laberinto";
+	public static final String DEFAULT_BUTTON_SOLVE = "Resolver Laberinto";
 	
+	/**
+	 * Constantes de las imagenes del JmenuItem 
+	 */
+	public static final String  IMAGE_CREATE =  "/imagesSettings/crear.png";
+	public static final String TITLE_PANEL_IMAGE = "Visualizacion_imagen";
 	
 }
