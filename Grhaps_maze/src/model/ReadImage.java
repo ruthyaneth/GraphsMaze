@@ -18,10 +18,10 @@ public class ReadImage {
 
 	public ReadImage(String fileImage) throws IOException {
 		matrixBit = new Color[ANCHO_MAXIMO][ALTO_MAXIMO];
-		cargarImagen(fileImage);
+		openImagen(fileImage);
 	}
 
-	private void cargarImagen(String pathImage) throws IOException {
+	private void openImagen(String pathImage) throws IOException {
 
 		File file = new File(pathImage);
 		BufferedImage bmp;
@@ -47,6 +47,18 @@ public class ReadImage {
 				matrixBit[i][j] = new Color(bmp.getRGB(j, i));
 			}
 	}
+	 public void binarizarImagen( double umbral ) {
+	        for( int i = 0; i < alto; i++ )
+	            for( int j = 0; j < ancho; j++ )
+	            {
+	                Color pixel = matrixBit[ i ][ j ];
+	                int promedio = ( pixel.getBlue( ) + pixel.getGreen( ) + pixel.getRed( ) ) / 3;
+	                if( promedio < umbral )
+	                    matrixBit[ i ][ j ] = Color.BLACK;
+	                else
+	                    matrixBit[ i ][ j ] = Color.WHITE;
+	            }
+	    }
 
 	public Color darColorPixel(int x, int y) {
 		if (x >= ancho || y >= alto)
@@ -55,14 +67,7 @@ public class ReadImage {
 			return matrixBit[y][x];
 	}
 
-	public void convertirAGrises() {
-		for (int i = 0; i < alto; i++)
-			for (int j = 0; j < ancho; j++) {
-				int rgbGris = (matrixBit[i][j].getBlue() + matrixBit[i][j].getGreen() + matrixBit[i][j].getRed()) / 3;
-				matrixBit[i][j] = new Color(rgbGris, rgbGris, rgbGris);
-			}
-	}
-
+	
 	public BufferedImage darImagenBuffer() {
 		BufferedImage imagen = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_RGB);
 		for (int i = 0; i < alto; i++)

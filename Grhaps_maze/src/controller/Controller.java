@@ -2,7 +2,12 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
+
+import javax.imageio.ImageIO;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
@@ -12,12 +17,13 @@ import view.PanelViewImage;
 
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA FACULTAD DE INGENIERIA.
- * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION. PRESENTADO A: Ing Helver
- * Valero. PROGRAMACION III Clase donde se encuenta el manejador de evento d e
- * 
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero. 
+ * PROGRAMACION III 
+ * Clase donde se encuenta el manejador de eventos
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
-public class Controller implements ActionListener {
+public class Controller implements ActionListener, Serializable {
 
 	// ------Atributtes-----
 
@@ -57,7 +63,12 @@ public class Controller implements ActionListener {
 			System.out.println(HandlerLanguage.language);
 		}
 	}
-
+	private void showFileChooser() {
+		provicional = new PanelViewImage(this);
+		frame.add(provicional);
+		provicional.updateUI();
+		provicional.binarizarImagen(122.0);
+	}
 	public void changeToEnglish() {
 		HandlerLanguage handlerLanguage = new HandlerLanguage("language/config.ini");
 		try {
@@ -84,11 +95,6 @@ public class Controller implements ActionListener {
 		}
 	}
 
-	private void showFileChooser() {
-		provicional = new PanelViewImage(this);
-		frame.add(provicional);
-		provicional.updateUI();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
