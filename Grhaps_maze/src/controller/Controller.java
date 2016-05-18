@@ -2,17 +2,12 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 
 import config.HandlerLanguage;
 import constant.ConstantsListener;
-import drawMaze.MazeCreator;
 import view.PrinicipalFrame;
 import view.CreateWindowMaze;
 import view.PanelViewImage;
@@ -29,7 +24,6 @@ public class Controller implements ActionListener {
 
 	private HandlerLanguage handlerLanguage;
 	private PrinicipalFrame frame;
-	private JFileChooser fileChooser;
 	private PanelViewImage provicional;
 	private CreateWindowMaze createWindow;
 
@@ -37,7 +31,6 @@ public class Controller implements ActionListener {
 
 	public Controller() {
 		loadConfiguration();
-		fileChooser = new JFileChooser();
 	}
 
 	// -----Methods-----
@@ -73,7 +66,6 @@ public class Controller implements ActionListener {
 			frame.getMenu().changeLenguage();
 			frame.getToolBar().changeLenguage();
 			frame.changeLenguage();
-			provicional.changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -87,27 +79,15 @@ public class Controller implements ActionListener {
 			frame.getMenu().changeLenguage();
 			frame.getToolBar().changeLenguage();
 			frame.changeLenguage();
-			provicional.changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	private void showFileChooser() {
-		provicional = new PanelViewImage(this, fileChooser);
+		provicional = new PanelViewImage(this);
 		frame.add(provicional);
-		int regresaValor = fileChooser.showOpenDialog(null);
-		if (regresaValor == JFileChooser.APPROVE_OPTION) {
-			File archivoElegido = fileChooser.getSelectedFile();
-			String direccion = archivoElegido.getPath();
-			try {
-				ImageIcon icon = new ImageIcon(direccion);
-				provicional.getLabelImagen().setIcon(icon);
-			} catch (Exception es) {
-				JOptionPane.showMessageDialog(null, "Error abriendo la imagen " + es);
 			}
-		}
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
