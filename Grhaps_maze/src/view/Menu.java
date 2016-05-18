@@ -19,7 +19,7 @@ import controller.Controller;
  * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
- * Clase  
+ * Clase  Menu donde estan la opciones de la aplicacion. 
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
 public class Menu extends JMenuBar {
@@ -45,9 +45,9 @@ public class Menu extends JMenuBar {
 		this.controller = controller;
 		initial();
 	}
-	
+
 	//------Methods------
-	
+
 	private void initial() {
 		addMenuFile();
 		addItemFileOpenImage();
@@ -66,17 +66,18 @@ public class Menu extends JMenuBar {
 	}
 
 	private void addMenuFile() {
-		menuFile = new JMenu();
-		menuFile.setText(ConstantsView.NAME_MENU_FILE);
+		this.menuFile = new JMenu();
+		this.menuFile.setText(ConstantsView.NAME_MENU_FILE);
 		this.add(menuFile);
 	}
 
 	private void addItemFileOpenImage() {
-		itemFileOpenImage = new JMenuItem();
-		itemFileOpenImage.setText(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE);
-		itemFileOpenImage.setActionCommand(ConstantsListener.ITEM_FILE_OPEN_IMAGE);
-		itemFileOpenImage.addActionListener(controller);
-		menuFile.add(itemFileOpenImage);
+		this.itemFileOpenImage = new JMenuItem();
+		this.itemFileOpenImage.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_OPEN)));
+		this.itemFileOpenImage.setText(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE);
+		this.itemFileOpenImage.setActionCommand(ConstantsListener.ITEM_FILE_OPEN_IMAGE);
+		this.itemFileOpenImage.addActionListener(controller);
+		this.menuFile.add(itemFileOpenImage);
 	}
 
 	public void addItemFileCreateImage() {
@@ -89,61 +90,64 @@ public class Menu extends JMenuBar {
 	}
 
 	private void addItemFileEditImage() {
-		itemFileEditImage = new JMenuItem();
-		itemFileEditImage.setText(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE);
-		itemFileEditImage.setActionCommand(ConstantsListener.ITEM_FILE_EDIT_IMAGE);
-		itemFileEditImage.addActionListener(controller);
-		menuFile.add(itemFileEditImage);
+		this.itemFileEditImage = new JMenuItem();
+		this.itemFileEditImage.setText(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE);
+		this.itemFileEditImage.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_EDIT)));
+		this.itemFileEditImage.setActionCommand(ConstantsListener.ITEM_FILE_EDIT_IMAGE);
+		this.itemFileEditImage.addActionListener(controller);
+		this.menuFile.add(itemFileEditImage);
 	}
 
 	private void addItemFileCloseApp() {
-		itemFileCloseApp = new JMenuItem();
-		itemFileCloseApp.setText(ConstantsView.NAME_ITEM_FILE_CLOSE_APP);
-		itemFileCloseApp.setActionCommand(ConstantsListener.ITEM_FILE_CLOSE_APP);
-		itemFileCloseApp.addActionListener(controller);
-		menuFile.add(itemFileCloseApp);
+		this.itemFileCloseApp = new JMenuItem();
+		this.itemFileCloseApp.setText(ConstantsView.NAME_ITEM_FILE_CLOSE_APP);
+		this.itemFileCloseApp.setActionCommand(ConstantsListener.ITEM_FILE_CLOSE_APP);
+		this.itemFileCloseApp.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_EXIT)));
+		this.itemFileCloseApp.addActionListener(controller);
+		this.menuFile.add(itemFileCloseApp);
 	}
 
 	private void addMenuSettup() {
-		menuSettings = new JMenu();
-		menuSettings.setText(ConstantsView.NAME_MENU_SETTINGS);
+		this.menuSettings = new JMenu();
+		this.menuSettings.setText(ConstantsView.NAME_MENU_SETTINGS);
 		this.add(menuSettings);
 	}
 
 	private void addMenuLanguage() {
-		menuLanguage = new JMenu();
-		menuLanguage.setText(ConstantsView.NAME_MENU_LANGUAGE);
-		menuSettings.add(menuLanguage);
+		this.menuLanguage = new JMenu();
+		this.menuLanguage.setText(ConstantsView.NAME_MENU_LANGUAGE);
+		this.menuLanguage.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_CONFIGURATION)));
+		this.menuSettings.add(menuLanguage);
 	}
 
 	private void addItemLanguageSpanish() {
-		itemLanguageSpanish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH);
-		itemLanguageSpanish.addActionListener(controller);
-		itemLanguageSpanish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH);
-		menuLanguage.add(itemLanguageSpanish);
+		this.itemLanguageSpanish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH);
+		this.itemLanguageSpanish.addActionListener(controller);
+		this.itemLanguageSpanish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH);
+		this.menuLanguage.add(itemLanguageSpanish);
 	}
 
 	private void addItemLanguageEnglish() {
-		itemLanguageEnglish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH);
-		itemLanguageEnglish.addActionListener(controller);
-		itemLanguageEnglish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH);
-		menuLanguage.add(itemLanguageEnglish);
+		this.itemLanguageEnglish = new JMenuItem(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH);
+		this.itemLanguageEnglish.addActionListener(controller);
+		this.itemLanguageEnglish.setActionCommand(ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH);
+		this.menuLanguage.add(itemLanguageEnglish);
 	}
 	public void changeLenguage() throws IOException{
 
 		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
 		handlerProperties.load();
 
-		menuFile.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_FILE));
-		menuSettings.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_SETTINGS));
-		menuLanguage.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_LANGUAGE));
+		this.menuFile.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_FILE));
+		this.menuSettings.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_SETTINGS));
+		this.menuLanguage.setText(handlerProperties.getProperty(ConstantsView.NAME_MENU_LANGUAGE));
 
-		itemFileOpenImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE));
-		itemFileEditImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE));
-		itemFileCreateImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE));
-		itemFileCloseApp.setText(handlerProperties .getProperty(ConstantsView.NAME_ITEM_FILE_CLOSE_APP));
-		itemLanguageSpanish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH));
-		itemLanguageEnglish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH));
+		this.itemFileOpenImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_OPEN_IMAGE));
+		this.itemFileEditImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_EDIT_IMAGE));
+		this.itemFileCreateImage.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_FILE_CREATE_IMAGE));
+		this.itemFileCloseApp.setText(handlerProperties .getProperty(ConstantsView.NAME_ITEM_FILE_CLOSE_APP));
+		this.itemLanguageSpanish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_SPANISH));
+		this.itemLanguageEnglish.setText(handlerProperties.getProperty(ConstantsView.NAME_ITEM_LANGUAGE_ENGLISH));
 	}
 
 

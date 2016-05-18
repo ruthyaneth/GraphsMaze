@@ -48,11 +48,19 @@ public class ConstantsView {
 	public static final String DEFAUTL_NAME_WINDOW = "Crear Laberinto";
 	public static final String DEFAULT_BUTTON_CREATE = "Generar Laberinto";
 	public static final String DEFAULT_BUTTON_SOLVE = "Resolver Laberinto";
+	public static final String DEFAULT_BUTTON_CLOSE = "Cerrar";
 	
 	/**
 	 * Constantes de las imagenes del JmenuItem 
 	 */
 	public static final String  IMAGE_CREATE =  "/imagesSettings/crear.png";
+	public static final String  IMAGE_OPEN =  "/imagesSettings/abrirI.png";
+	public static final String  IMAGE_CONFIGURATION =  "/imagesSettings/configuracion.png";
+	public static final String  IMAGE_EDIT =  "/imagesSettings/editar.png";
+	public static final String  IMAGE_SOLVE =  "/imagesSettings/resover.png";
+	public static final String  IMAGE_EXIT =  "/imagesSettings/salir.png";
+	
+	
 	public static final String TITLE_PANEL_IMAGE = "Visualizacion_imagen";
 	
 }

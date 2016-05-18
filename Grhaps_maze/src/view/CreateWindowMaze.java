@@ -1,7 +1,9 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
+import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JWindow;
 
@@ -46,19 +48,16 @@ public class CreateWindowMaze  extends JDialog{
 	 
 	 public void initializatePanelButton(){
 		 this.panelDraw = new PanelDraw();
+		 this.panelDraw.setBorder(BorderFactory.createTitledBorder("Laberinto"));
 		 this.add(panelDraw,BorderLayout.CENTER);
 		 
 	 }
 	 
 	 public void initializatePanelDraw(){
 		 this.panelCreateButton = new PanelCreateButton();
+		 this.panelCreateButton.setBorder(BorderFactory.createTitledBorder("Opciones"));
 		 this.add(panelCreateButton,BorderLayout.SOUTH);
 	 }
 	 
-	 public static void main(String[] args) {
-		
-		 CreateWindowMaze m = new CreateWindowMaze();
-		 m.setVisible(true);
-	}
 	
 }

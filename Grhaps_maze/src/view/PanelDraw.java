@@ -21,7 +21,6 @@ public class PanelDraw extends JPanel{
 	
 	public PanelDraw() {
 		
-		this.setBackground(Color.cyan);
 	}
 	//-----Methods-------
 	

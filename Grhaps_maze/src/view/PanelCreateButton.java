@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -23,6 +24,7 @@ public class PanelCreateButton extends JPanel {
 	
 	private JButton buttonCreate;
 	private JButton buttonSolve;
+	private JButton buttonClose;
 	
 	//------Builder------
 	
@@ -35,18 +37,29 @@ public class PanelCreateButton extends JPanel {
 		initializateThis();
 		initializateButtonCreate();
 		initialzateButtonSolve();
+		initializateButtonClose();
 	}
+	
 	public void initializateThis(){
-		this.setLayout(new GridLayout(1,2));
+		this.setLayout(new GridLayout(1,3));
 	}
+	
 	public void initializateButtonCreate(){
 		this.buttonCreate = new JButton(ConstantsView.DEFAULT_BUTTON_CREATE);
+		this.buttonCreate.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_CREATE)));
 		this.add(buttonCreate);
 	}
 	
 	public void initialzateButtonSolve(){
 		this.buttonSolve = new JButton(ConstantsView.DEFAULT_BUTTON_SOLVE);
+		this.buttonSolve.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_SOLVE)));
 		this.add(buttonSolve);
+	}
+	
+	public void initializateButtonClose(){
+		this.buttonClose = new JButton(ConstantsView.DEFAULT_BUTTON_CLOSE);
+		this.buttonClose.setIcon(new ImageIcon(getClass().getResource(ConstantsView.IMAGE_EXIT)));
+		this.add(buttonClose);
 	}
 	
 	//-------Gets&Sets-------

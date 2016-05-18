@@ -116,7 +116,6 @@ public class Controller implements ActionListener {
 			showFileChooser();
 			break;
 		case ConstantsListener.ITEM_FILE_CREATE_IMAGE:
-			System.out.println("crear laberitno");
 			showWindowCreate();
 			break;
 		case ConstantsListener.ITEM_FILE_EDIT_IMAGE:
