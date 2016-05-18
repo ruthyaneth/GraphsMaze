@@ -1,5 +1,11 @@
 package logic;
 
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.TreeSet;
+import java.util.List;
+import structure.SimpleList;
 import view.CreateWindowMaze;
 
 /**
@@ -26,6 +32,7 @@ public class GenerateBox {
 	  this.create = create;
 	  this.column = column;
 	  this.row = row;
+	  initializate();
 	}
 	
 	//-----Methods------
@@ -39,5 +46,12 @@ public class GenerateBox {
 		}
 	}
 	
-	
+	public void generateBox(){
+		
+		TreeSet<Box> visitados = new TreeSet<Box>();
+		List<Box> porVisitar = (List<Box>) new SimpleList<Box>();
+		porVisitar.add(0, box[0][0]);
+		File file = new File(File.separator + "lab.txt");
+		
+	}
 }

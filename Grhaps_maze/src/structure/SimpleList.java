@@ -87,6 +87,7 @@ public class SimpleList<T> {
             node.setNext(new Node<T>(info));
         }
     }
+    
 
     /**
      * Inserta un elemento al final de la lista.
