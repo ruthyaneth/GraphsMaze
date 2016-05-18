@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -22,6 +21,10 @@ public class PanelCreateButton extends JPanel {
 
 	//------Atributtes-------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton buttonCreate;
 	private JButton buttonSolve;
 	private JButton buttonClose;

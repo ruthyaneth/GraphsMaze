@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.JFileChooser;
-
 import config.HandlerLanguage;
 import constant.ConstantsListener;
 import view.PrinicipalFrame;
@@ -15,7 +13,8 @@ import view.PanelViewImage;
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA FACULTAD DE INGENIERIA.
  * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION. PRESENTADO A: Ing Helver
- * Valero. PROGRAMACION III Clase donde se encuenta el manejador de evento d e 
+ * Valero. PROGRAMACION III Clase donde se encuenta el manejador de evento d e
+ * 
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
 public class Controller implements ActionListener {
@@ -38,10 +37,11 @@ public class Controller implements ActionListener {
 	public void show() {
 		frame = new PrinicipalFrame(this);
 		frame.setVisible(true);
+
 	}
-	
-	public void showWindowCreate(){
-		
+
+	public void showWindowCreate() {
+
 		this.createWindow = new CreateWindowMaze();
 		this.createWindow.setVisible(true);
 	}
@@ -87,7 +87,8 @@ public class Controller implements ActionListener {
 	private void showFileChooser() {
 		provicional = new PanelViewImage(this);
 		frame.add(provicional);
-			}
+		provicional.updateUI();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -102,7 +103,6 @@ public class Controller implements ActionListener {
 			System.out.println("edit");
 			break;
 		case ConstantsListener.ITEM_FILE_CLOSE_APP:
-			System.out.println("escucho close");
 			System.exit(0);
 			break;
 		case ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH:
@@ -111,7 +111,6 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
-
 		}
 	}
 }

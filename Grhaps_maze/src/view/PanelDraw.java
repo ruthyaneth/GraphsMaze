@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -19,6 +18,10 @@ public class PanelDraw extends JPanel{
 	
 	//------Builder------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public PanelDraw() {
 		
 	}
