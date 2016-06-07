@@ -57,7 +57,7 @@ public class GenerateBox {
 		porVisitar.add(0, box[0][0]);
 		File file = new File(File.separator + "lab.txt");
 		fileUtil.save(file, box, 0, row*column-1);
-		create
+		create.readFile(file, false);
 		
 		
 		

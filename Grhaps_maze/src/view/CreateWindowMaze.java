@@ -4,12 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JWindow;
+
+import com.sun.xml.internal.ws.api.Component;
 
 import constant.ConstantsView;
 import persistence.FileUtil;
@@ -99,8 +104,18 @@ public class CreateWindowMaze  extends JDialog{
 				//323
 				}
 			}
-		} catch (Exception e) {
-			
+		} catch (NumberFormatException e) {
+			util.showMessagger((Component) this,"Mensaje  de error archivo sintaxis ");
+		}catch (IOException e) {
+			util.showMessagger((Component) this,util.mesagge("Error de archivo", new Object[]{file}));
+		}
+		
+		if(!openEditor){
+		// metodo dibujar tablero 	 333
+			//334
+		}else{
+			//336
+			//337
 		}
 		
 		 
@@ -108,7 +123,11 @@ public class CreateWindowMaze  extends JDialog{
 	 
 	 public void readFile(File file , boolean openEditor){
 		 
-		 
+		 try {
+			this.read(new FileInputStream(file), file.getName(), openEditor);
+		} catch (FileNotFoundException e) {
+			util.showMessagger((Component) this, "Archivo no existe");
+		}
 	 }
 	
 }
