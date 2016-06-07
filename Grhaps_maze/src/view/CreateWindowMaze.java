@@ -2,12 +2,17 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JWindow;
 
 import constant.ConstantsView;
+import persistence.FileUtil;
 
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
@@ -22,9 +27,11 @@ public class CreateWindowMaze  extends JDialog{
 
 	//------Atributtes------
 	
-	 PanelCreateButton panelCreateButton;
-	 PanelDraw panelDraw;
-	 
+	private  PanelCreateButton panelCreateButton;
+	 private PanelDraw panelDraw;
+	 private boolean pintarLaberinto = false;
+	 int inicio,fin,filas,columnas,nodos[][];
+	 private FileUtil util;
 	 //------Builder------
 	 
 	 public CreateWindowMaze() {
@@ -59,5 +66,49 @@ public class CreateWindowMaze  extends JDialog{
 		 this.add(panelCreateButton,BorderLayout.SOUTH);
 	 }
 	 
+	 /**
+	  * Metodo que me toca mirar algunas cosas que no pienso que vaya ahi 
+	  */
+	 
+	 public void read(InputStream input , String file , boolean openEditor){
+		 
+		String line = "";
+		BufferedReader buffer;
+		 //me falta mete la parte del grafo 
+		pintarLaberinto =! openEditor;
+		try {
+			buffer = new BufferedReader(new InputStreamReader(input));
+			filas = Integer.parseInt(buffer.readLine());
+			columnas = Integer.parseInt(buffer.readLine());
+			inicio = Integer.parseInt(buffer.readLine());
+			fin = Integer.parseInt(buffer.readLine());
+			int total = filas* columnas ;
+			//nodos 
+			//Nodo
+			//Clase Principal linea 306
+			for (int i = 0; i < total; i++) {
+				line = buffer.readLine();
+				String[] numeros = line.trim().split(" ") ; // BUSCAR QUE ES UN TRIM 
+				int nodoNumber = Integer.parseInt(numeros[0]);
+				//Linea de atributo de Nodo linea 314 clase principal
+				for (int j = 0; j < numeros.length; j++) {
+				//linea de clase principal node linea 317
+				//318
+				int nVecinos = Integer.parseInt(numeros[j]);
+				//322
+				//323
+				}
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		 
+	 }
+	 
+	 public void readFile(File file , boolean openEditor){
+		 
+		 
+	 }
 	
 }

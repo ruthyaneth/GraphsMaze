@@ -23,7 +23,7 @@ import logic.Box;
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
 
-public class Util{
+public class FileUtil{
 	
 	//-------Atributtes------
 
@@ -31,7 +31,7 @@ public class Util{
 	private MessageFormat formatter = new MessageFormat("");
 	
 	//------Builder------
-	public Util() {
+	public FileUtil() {
 		//Mirar que tiene el constructor 
 	}
 	

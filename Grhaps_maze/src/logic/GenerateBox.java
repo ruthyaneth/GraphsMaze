@@ -4,6 +4,9 @@ package logic;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeSet;
+
+import persistence.FileUtil;
+
 import java.util.List;
 import structure.SimpleList;
 import view.CreateWindowMaze;
@@ -25,6 +28,7 @@ public class GenerateBox {
 	private int column; // Numero de columnas
 	private Box [][] box;
 	private CreateWindowMaze create; // Esto es de presentacion mirar como arreglarlo 
+	private FileUtil fileUtil;
 	
 	//------Builder-------
 	
@@ -52,6 +56,10 @@ public class GenerateBox {
 		List<Box> porVisitar = (List<Box>) new SimpleList<Box>();
 		porVisitar.add(0, box[0][0]);
 		File file = new File(File.separator + "lab.txt");
+		fileUtil.save(file, box, 0, row*column-1);
+		create
+		
+		
 		
 	}
 }
