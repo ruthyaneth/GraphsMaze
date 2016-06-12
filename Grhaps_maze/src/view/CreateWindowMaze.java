@@ -33,7 +33,7 @@ public class CreateWindowMaze  extends JDialog{
 	//------Atributtes------
 	
 	private  PanelCreateButton panelCreateButton;
-	 private PanelDraw panelDraw;
+	 private PanelDrawTablero panelDraw;
 	 private boolean pintarLaberinto = false;
 	 int inicio,fin,filas,columnas,nodos[][];
 	 private FileUtil util;
@@ -59,7 +59,7 @@ public class CreateWindowMaze  extends JDialog{
 	 }
 	 
 	 public void initializatePanelButton(){
-		 this.panelDraw = new PanelDraw();
+		 this.panelDraw = new PanelDrawTablero();
 		 this.panelDraw.setBorder(BorderFactory.createTitledBorder("Laberinto"));
 		 this.add(panelDraw,BorderLayout.CENTER);
 		 
