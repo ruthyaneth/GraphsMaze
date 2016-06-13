@@ -10,6 +10,7 @@ import config.HandlerLanguage;
 import constant.ConstantsListener;
 import view.PrinicipalFrame;
 import view.CreateWindowMaze;
+import view.PanelDrawTablero;
 import view.PanelViewImage;
 
 /**
@@ -20,7 +21,7 @@ import view.PanelViewImage;
  * Clase donde se encuenta el manejador de eventos
  * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
-public class Controller implements ActionListener, Serializable {
+public class Controller implements ActionListener {
 
 	// ------Atributtes-----
 
@@ -38,7 +39,7 @@ public class Controller implements ActionListener, Serializable {
 	// -----Methods-----
 
 	public void show() {
-		frame = new PrinicipalFrame(this);
+		frame = new PrinicipalFrame();
 		frame.setVisible(true);
 
 	}
@@ -114,6 +115,10 @@ public class Controller implements ActionListener, Serializable {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
 			changeToEnglish();
 			break;
+		case ConstantsListener.CREATE_MAZE :
+			System.out.println("Hola Jenny Paola Quesada Hernandez");
+			createWindow.generateMaze();
+			
 		}
 	}
 }

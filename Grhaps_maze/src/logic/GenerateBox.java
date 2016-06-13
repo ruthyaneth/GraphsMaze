@@ -45,7 +45,7 @@ public class GenerateBox {
 		this.box = new Box[row][column];
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				box[row][column] = new Box(i * column + j);
+				box[i][j] = new Box(i * column + j);
 			}
 		}
 	}
@@ -53,13 +53,53 @@ public class GenerateBox {
 	public void generateBox(){
 		
 		TreeSet<Box> visitados = new TreeSet<Box>();
-		List<Box> porVisitar = (List<Box>) new SimpleList<Box>();
+		List<Box> porVisitar = new ArrayList<Box>();
 		porVisitar.add(0, box[0][0]);
 		File file = new File(File.separator + "lab.txt");
 		fileUtil.save(file, box, 0, row*column-1);
 		create.readFile(file, false);
 		
-		
-		
 	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+	public int getColumn() {
+		return column;
+	}
+
+	public void setColumn(int column) {
+		this.column = column;
+	}
+
+	public Box[][] getBox() {
+		return box;
+	}
+
+	public void setBox(Box[][] box) {
+		this.box = box;
+	}
+
+	public CreateWindowMaze getCreate() {
+		return create;
+	}
+
+	public void setCreate(CreateWindowMaze create) {
+		this.create = create;
+	}
+
+	public FileUtil getFileUtil() {
+		return fileUtil;
+	}
+
+	public void setFileUtil(FileUtil fileUtil) {
+		this.fileUtil = fileUtil;
+	}
+	
+	
 }

@@ -2,7 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.io.IOException;
-
+import java.util.ResourceBundle;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -12,6 +13,7 @@ import config.HandlerLanguage;
 import config.HandlerProperties;
 import constant.ConstantsView;
 import controller.Controller;
+import persistence.FileUtil;
 
 /**
  * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
@@ -27,16 +29,20 @@ public class PrinicipalFrame extends JFrame   {
 	private static final long serialVersionUID = 1L;
 	private Menu menuBar;
 	private ToolBar toolBar;
+	private CreateWindowMaze create;
+	private Controller controller;
+	
+	
+	
 
-	public PrinicipalFrame(Controller controller) {
-		super();
-		
+	public PrinicipalFrame() {
 		try {
 			changeLenguage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		this.controller = new Controller();
+		this.create = new CreateWindowMaze();
 		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
 		menuBar = new Menu(controller);

@@ -24,8 +24,8 @@ public class PanelDrawTablero extends JPanel{
 	//------Atrinuttes------
 	private Vector<Line> line;
 	private Vector<Step> step;
-	private Circle circleInit;
-	private Circle circleFinal;
+	private Circle init;
+	private Circle fin;
 	
 	//------Builder------
 	
@@ -66,8 +66,8 @@ public class PanelDrawTablero extends JPanel{
 	public void cleanAll(){
 		line.removeAllElements();
 		step.removeAllElements();
-		setCircleFinal(null);
-		setCircleInit(null);
+		setFin(null);
+		setInicio(null);
 	}
 	
 	//------Gets&Sets-------
@@ -83,18 +83,20 @@ public class PanelDrawTablero extends JPanel{
 	public void setStep(Vector<Step> step) {
 		this.step = step;
 	}
-	public Circle getCircleInit() {
-		return circleInit;
+	public Circle getInit() {
+		return init;
 	}
-	public void setCircleInit(Circle circleInit) {
-		this.circleInit = circleInit;
+	public void setInicio(Circle inicio) {
+		this.init = inicio;
 	}
-	public Circle getCircleFinal() {
-		return circleFinal;
+	public Circle getFin() {
+		return fin;
 	}
-	public void setCircleFinal(Circle circleFinal) {
-		this.circleFinal = circleFinal;
+	public void setFin(Circle fin) {
+		this.fin = fin;
 	}
+	
+	
 	
 	
 

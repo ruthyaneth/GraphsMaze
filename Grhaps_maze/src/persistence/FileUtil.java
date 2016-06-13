@@ -101,4 +101,21 @@ public class FileUtil{
 					new Object[] { file.getName() }));
 		}
 	}
+
+	public ResourceBundle getResource() {
+		return resource;
+	}
+
+	public void setResource(ResourceBundle resource) {
+		this.resource = resource;
+	}
+
+	public MessageFormat getFormatter() {
+		return formatter;
+	}
+
+	public void setFormatter(MessageFormat formatter) {
+		this.formatter = formatter;
+	}
+	
 }
