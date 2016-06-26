@@ -10,7 +10,6 @@ import config.HandlerLanguage;
 import constant.ConstantsListener;
 import view.PrinicipalFrame;
 import view.CreateWindowMaze;
-import view.PanelDrawTablero;
 import view.PanelViewImage;
 
 /**
@@ -19,9 +18,9 @@ import view.PanelViewImage;
  * PRESENTADO A: Ing Helver Valero. 
  * PROGRAMACION III 
  * Clase donde se encuenta el manejador de eventos
- * @author  Jenny Quesada , Ruth Rojas
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
  */
-public class Controller implements ActionListener {
+public class Controller implements ActionListener, Serializable {
 
 	// ------Atributtes-----
 
@@ -39,7 +38,7 @@ public class Controller implements ActionListener {
 	// -----Methods-----
 
 	public void show() {
-		frame = new PrinicipalFrame();
+		frame = new PrinicipalFrame(this);
 		frame.setVisible(true);
 
 	}
@@ -112,18 +111,13 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH:
 			changeToSpanish();
 			break;
+		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
+			changeToEnglish();
+			break;
 		case ConstantsListener.CREATE_MAZE :
 			System.out.println("Hola Jenny Paola Quesada Hernandez");
 			createWindow.generateMaze();
 			break;
-		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
-			changeToEnglish();
-			
-//		case ConstantsListener.CREATE_MAZE :
-//			System.out.println("Hola Jenny Paola Quesada Hernandez");
-//			createWindow.generateMaze();
-//			break
-			
 		}
 	}
 }

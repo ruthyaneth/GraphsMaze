@@ -11,8 +11,18 @@ import config.HandlerProperties;
 import constant.ConstantsListener;
 import constant.ConstantsView;
 import controller.Controller;
-
+/**
+ * UNIVERSIDAD PEDAGOGICA Y TECNOLOGICA DE COLOMBIA
+ * FACULTAD DE INGENIERIA.
+ * ESCUELA DE INGENIERIA DE SISTEMAS Y COMPUTACION.
+ * PRESENTADO A: Ing Helver Valero.
+ * PROGRAMACION III
+ * Clase 
+ * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ */
 public class ToolBar extends JToolBar {
+
+	//-----Attributte-------
 
 	private static final long serialVersionUID = 1L;
 	private JButton buttonOpenImage;
@@ -20,9 +30,11 @@ public class ToolBar extends JToolBar {
 	private JButton buttonEditImage;
 	private Controller controller;
 
+	//------Builder------
+
 	public ToolBar(Controller controller) {
 		super();
-	this.controller = controller;
+		this.controller = controller;
 		init();
 		try {
 			changeLenguage();
@@ -31,6 +43,8 @@ public class ToolBar extends JToolBar {
 		}
 	}
 
+	//------Methods-------
+	
 	private void init() {
 		addButtonOpenImage();
 		addButtonCreateImage();
@@ -68,12 +82,11 @@ public class ToolBar extends JToolBar {
 		HandlerProperties handlerProperties = new HandlerProperties(HandlerLanguage.language);
 		handlerProperties.load();
 		buttonOpenImage
-				.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_OPEN_IMAGE));
+		.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_OPEN_IMAGE));
 		buttonCreateImage
-				.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_CREATE_IMAGE));
+		.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_CREATE_IMAGE));
 		buttonEditImage
-				.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_EDIT_IMAGE));
+		.setToolTipText(handlerProperties.getProperty(ConstantsView.TOOL_BAR_TOOL_TIP_BUTTON_EDIT_IMAGE));
 
 	}
-
 }
