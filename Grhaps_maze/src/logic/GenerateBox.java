@@ -4,9 +4,8 @@ package logic;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeSet;
-
+import controller.Controller;
 import persistence.FileUtil;
-
 import java.util.List;
 import structure.SimpleList;
 import view.CreateWindowMaze;
@@ -36,12 +35,15 @@ public class GenerateBox {
 	  this.create = create;
 	  this.column = column;
 	  this.row = row;
+	 
 	  initializate();
 	}
 	
 	//-----Methods------
 	
+	
 	public void initializate(){
+		
 		this.box = new Box[row][column];
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
@@ -55,7 +57,8 @@ public class GenerateBox {
 		TreeSet<Box> visitados = new TreeSet<Box>();
 		List<Box> porVisitar = new ArrayList<Box>();
 		porVisitar.add(0, box[0][0]);
-		File file = new File(File.separator + "lab.txt");
+		File file = new File(System.getProperty("java.io.tmpdir")+File.separator+"lab.txt");
+		 fileUtil = new FileUtil();
 		fileUtil.save(file, box, 0, row*column-1);
 		create.readFile(file, false);
 		

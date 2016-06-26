@@ -12,7 +12,7 @@ import java.util.Properties;
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
  * Clase donde configura cada una de los lenguajes que escoge el  ususario 
- * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ * @author Jenny Quesada, Ruth Rojas
  */
 
 public class HandlerProperties extends Properties {

@@ -7,7 +7,7 @@ import java.io.IOException;
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
  * Clase  
- * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ * @author Jenny Quesada , Ruth Rojas
  */
 public class HandlerLanguage {
 	

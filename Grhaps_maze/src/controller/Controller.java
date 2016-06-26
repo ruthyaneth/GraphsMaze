@@ -19,7 +19,7 @@ import view.PanelViewImage;
  * PRESENTADO A: Ing Helver Valero. 
  * PROGRAMACION III 
  * Clase donde se encuenta el manejador de eventos
- * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ * @author  Jenny Quesada , Ruth Rojas
  */
 public class Controller implements ActionListener {
 
@@ -46,7 +46,7 @@ public class Controller implements ActionListener {
 
 	public void showWindowCreate() {
 
-		this.createWindow = new CreateWindowMaze();
+		this.createWindow = new CreateWindowMaze(this);
 		this.createWindow.setVisible(true);
 	}
 
@@ -112,12 +112,17 @@ public class Controller implements ActionListener {
 		case ConstantsListener.ITEM_FILE_LANGUAGE_SPANISH:
 			changeToSpanish();
 			break;
-		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
-			changeToEnglish();
-			break;
 		case ConstantsListener.CREATE_MAZE :
 			System.out.println("Hola Jenny Paola Quesada Hernandez");
 			createWindow.generateMaze();
+			break;
+		case ConstantsListener.ITEM_FILE_LANGUAGE_ENGLISH:
+			changeToEnglish();
+			
+//		case ConstantsListener.CREATE_MAZE :
+//			System.out.println("Hola Jenny Paola Quesada Hernandez");
+//			createWindow.generateMaze();
+//			break
 			
 		}
 	}

@@ -33,7 +33,7 @@ public class PanelDrawTablero extends JPanel{
 		
 		this.line = new Vector<Line>(0);
 		this.step = new Vector<Step>(0);
-		this.setBackground(Color.blue);
+		this.setBackground(Color.black);
 		
 	}
 	//-----Methods-------

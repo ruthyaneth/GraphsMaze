@@ -48,6 +48,7 @@ public class FileUtil{
 	}
 	
 	public void save(File file, Box[][] casillas, int inicio,int fin) {
+		System.out.println("Argentina");
 		int filas = casillas.length;
 		int columnas = casillas[0].length;
 		

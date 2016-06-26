@@ -26,7 +26,7 @@ public class Board extends JPanel
 			{
 				public void mouseDragged(MouseEvent e)
 				{
-					mouseAction(e);
+//					mouseAction(e);
 				}
 			}
 		);
@@ -37,33 +37,33 @@ public class Board extends JPanel
 			{
 				public void mousePressed(MouseEvent e)
 				{
-					mouseAction(e);
+//					mouseAction(e);
 				}
 			}
 		);
 	}
 	
 	//when a mouse click or movement is detected, run this method
-	public void mouseAction(MouseEvent e)
-	{
-		if (inputAllowed)
-		{
-			if (SwingUtilities.isLeftMouseButton(e))
-			{
-				if (wallOrPoint)
-				{
-					grid[e.getY() / size][e.getX() / size].setState(1);
-				} else if (count()) 
-				{
-					grid[e.getY() / size][e.getX() / size].setState(2);
-				}
-			} else if (SwingUtilities.isRightMouseButton(e))
-			{
-				grid[e.getY() / size][e.getX() / size].setState(0);
-			}
-			repaint();
-		}	
-	}
+//	public void mouseAction(MouseEvent e)
+//	{
+//		if (inputAllowed)
+//		{
+//			if (SwingUtilities.isLeftMouseButton(e))
+//			{
+//				if (wallOrPoint)
+//				{
+//					grid[e.getY() / size][e.getX() / size].setState(1);
+//				} else if (count()) 
+//				{
+//					grid[e.getY() / size][e.getX() / size].setState(2);
+//				}
+//			} else if (SwingUtilities.isRightMouseButton(e))
+//			{
+//				grid[e.getY() / size][e.getX() / size].setState(0);
+//			}
+//			repaint();
+//		}	
+//	}
 	
 	public void paintComponent(Graphics g)
 	{

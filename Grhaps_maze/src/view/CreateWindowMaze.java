@@ -53,10 +53,8 @@ public class CreateWindowMaze  extends JDialog{
 	//Atributo grafo del proyecto Maze clase  Principal linea 56
 	//------Builder------
 
-	public CreateWindowMaze() {
-		this.controller = new Controller();
+	public CreateWindowMaze(Controller controller) {
 		load(controller);
-		generate = new GenerateBox(this, 0, 0);
 	}
 
 	//------Methods------
@@ -65,12 +63,12 @@ public class CreateWindowMaze  extends JDialog{
 		initializateThis();
 		initializatePanelButton();
 		initializatePanelDraw(controller);
-//		initializateOthers();
+		initializateOthers();
 	}
 
-//	public void initializateOthers(){
-//		generate = new GenerateBox(this, 0, 0);
-//	}
+	public void initializateOthers(){
+		generate = new GenerateBox(this, 0, 0);
+	}
 
 	public void initializateThis(){
 		this.setTitle(ConstantsView.DEFAUTL_NAME_WINDOW);
@@ -177,14 +175,14 @@ public class CreateWindowMaze  extends JDialog{
 	}
 
 	public void generateMaze(){// Metodo para generar el laberinto 
-
+		System.out.println("Juan diego ");
 		int[][] datos = preguntarFilasColumnas();
 		if(datos != null){
 			generate.setRow(datos[0][0]);
 			generate.setColumn(datos[0][0]);
 			generate.initializate();
 			generate.generateBox();
-			System.out.println("Juan diego ");
+			
 		}
 	}
 

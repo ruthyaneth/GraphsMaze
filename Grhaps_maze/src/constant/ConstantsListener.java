@@ -6,7 +6,7 @@ package constant;
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
  * Clase de constantes de ¿l manejador de eventos de los botones
- * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ * @author  Jenny Quesada , Ruth Rojas
  */
 public class ConstantsListener {
 

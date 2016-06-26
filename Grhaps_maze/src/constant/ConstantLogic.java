@@ -6,7 +6,7 @@ package constant;
  * PRESENTADO A: Ing Helver Valero.
  * PROGRAMACION III
  * Clase  de constantes que van a estar en el aquete de la logica.
- * @author Adrian Parra, Jenny Quesada, Daniel Reyes , Ruth Rojas
+ * @author Jenny Quesada, Ruth Rojas
  */
 public class ConstantLogic {
 	

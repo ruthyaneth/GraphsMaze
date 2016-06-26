@@ -42,7 +42,7 @@ public class PrinicipalFrame extends JFrame   {
 			e.printStackTrace();
 		}
 		this.controller = new Controller();
-		this.create = new CreateWindowMaze();
+		this.create = new CreateWindowMaze(controller);
 		this.setSize(ConstantsView.WIDTH_WINDOW, ConstantsView.HEIGHT_WINDOW);
 		this.setLocationRelativeTo(null);
 		menuBar = new Menu(controller);
